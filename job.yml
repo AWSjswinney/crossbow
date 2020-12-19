@@ -1,0 +1,27 @@
+!Job
+target: !Target
+  head: e09a874c91c52fa737e4d45ee0185449ae2bb8b2
+  email: jswinney@amazon.com
+  branch: arm
+  remote: /mnt/nfs/repos/arrow.git/
+  version: 1.1.0.dev922
+  no_rc_version: 1.1.0.dev922
+  no_rc_semver_version: 1.1.0-dev922
+tasks:
+  wheel-manylinux2014-cp36m: !Task
+    ci: azure
+    template: python-wheels/azure.linux.yml
+    artifacts:
+    - pyarrow-1.1.0.dev922-cp36-cp36m-manylinux2014_x86_64.whl
+    params:
+      python_version: 3.6
+      unicode_width: 16
+      wheel_tag: manylinux2014
+      wheel_dir: manylinux201x
+      test_docker_images:
+      - python:3.6
+      test_remove_system_libs: true
+    branch: build-1-azure-wheel-manylinux2014-cp36m
+    commit: 69bb8ae9be5e2fdf9febe775c7a8f99ea1ef922a
+params: {}
+branch: build-1
