@@ -1,0 +1,27 @@
+!Job
+target: !Target
+  head: a70bdb695c7700ad34455261fb97dd0dcbbf72cd
+  email: unknown
+  branch: arm
+  remote: ec2-user@ti-coord-1:/mnt/nfs/repos/arrow.git
+  version: 2.1.0.dev414
+  no_rc_version: 2.1.0.dev414
+  no_rc_semver_version: 2.1.0-dev414
+tasks:
+  wheel-manylinux2014-cp38-aarch64: !Task
+    ci: travis
+    template: python-wheels/travis.linux.aarch64.yml
+    artifacts:
+    - pyarrow-2.1.0.dev414-cp38-cp38-manylinux2014_aarch64.whl
+    params:
+      python_version: 3.8
+      unicode_width: 16
+      wheel_tag: manylinux2014
+      wheel_dir: manylinux201x
+      test_docker_images:
+      - python:3.8
+      test_remove_system_libs: true
+    branch: build-4-travis-wheel-manylinux2014-cp38-aarch64
+    commit: 327f073bdf3d74729262c50cb18a85baad21ac37
+params: {}
+branch: build-4
