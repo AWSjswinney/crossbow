@@ -1,0 +1,27 @@
+!Job
+target: !Target
+  head: 07a78aaf182c298e354add09484d88e1c1106ecd
+  email: unknown
+  branch: arm-draft
+  remote: https://github.com/AWSjswinney/arrow.git
+  version: 2.1.0.dev416
+  no_rc_version: 2.1.0.dev416
+  no_rc_semver_version: 2.1.0-dev416
+tasks:
+  wheel-manylinux2014-cp38-aarch64: !Task
+    ci: travis
+    template: python-wheels/travis.linux.aarch64.yml
+    artifacts:
+    - pyarrow-2.1.0.dev416-cp38-cp38-manylinux2014_aarch64.whl
+    params:
+      python_version: 3.8
+      unicode_width: 16
+      wheel_tag: manylinux2014
+      wheel_dir: manylinux201x
+      test_docker_images:
+      - python:3.8
+      test_remove_system_libs: true
+    branch: build-8-travis-wheel-manylinux2014-cp38-aarch64
+    commit: c991dde5848418bc9130874bb949321b413f17ce
+params: {}
+branch: build-8
